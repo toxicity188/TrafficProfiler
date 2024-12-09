@@ -1,0 +1,510 @@
+{
+ "total_time": "300002.0ms",
+ "average_traffic": {
+  "in": "0kbps",
+  "out": "362kbps"
+ },
+ "global": {
+  "client_bound": {
+   "minecraft_level_chunk_with_light": {
+    "value": 107004,
+    "percentage": "98.513%"
+   },
+   "minecraft_entity_position_sync": {
+    "value": 365,
+    "percentage": "0.336%"
+   },
+   "minecraft_move_entity_pos_rot": {
+    "value": 343,
+    "percentage": "0.316%"
+   },
+   "minecraft_move_entity_pos": {
+    "value": 227,
+    "percentage": "0.21%"
+   },
+   "minecraft_set_entity_motion": {
+    "value": 177,
+    "percentage": "0.163%"
+   },
+   "minecraft_rotate_head": {
+    "value": 174,
+    "percentage": "0.16%"
+   },
+   "minecraft_add_entity": {
+    "value": 71,
+    "percentage": "0.066%"
+   },
+   "minecraft_light_update": {
+    "value": 48,
+    "percentage": "0.045%"
+   },
+   "minecraft_update_attributes": {
+    "value": 41,
+    "percentage": "0.038%"
+   },
+   "minecraft_update_advancements": {
+    "value": 33,
+    "percentage": "0.03%"
+   },
+   "minecraft_commands": {
+    "value": 30,
+    "percentage": "0.028%"
+   },
+   "minecraft_set_entity_data": {
+    "value": 28,
+    "percentage": "0.027%"
+   },
+   "minecraft_forget_level_chunk": {
+    "value": 23,
+    "percentage": "0.022%"
+   },
+   "minecraft_sound": {
+    "value": 11,
+    "percentage": "0.01%"
+   },
+   "minecraft_entity_event": {
+    "value": 6,
+    "percentage": "0.006%"
+   },
+   "minecraft_set_time": {
+    "value": 5,
+    "percentage": "0.005%"
+   },
+   "minecraft_remove_entities": {
+    "value": 4,
+    "percentage": "0.004%"
+   },
+   "minecraft_move_entity_rot": {
+    "value": 4,
+    "percentage": "0.004%"
+   },
+   "minecraft_level_particles": {
+    "value": 3,
+    "percentage": "0.003%"
+   },
+   "minecraft_bundle_delimiter": {
+    "value": 2,
+    "percentage": "0.003%"
+   },
+   "minecraft_player_info_update": {
+    "value": 2,
+    "percentage": "0.002%"
+   },
+   "minecraft_set_equipment": {
+    "value": 2,
+    "percentage": "0.002%"
+   },
+   "minecraft_add_experience_orb": {
+    "value": 2,
+    "percentage": "0.002%"
+   },
+   "minecraft_set_chunk_cache_center": {
+    "value": 0,
+    "percentage": "0.001%"
+   },
+   "minecraft_level_event": {
+    "value": 0,
+    "percentage": "0.001%"
+   },
+   "minecraft_set_experience": {
+    "value": 0,
+    "percentage": "0.001%"
+   },
+   "minecraft_block_update": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_take_item_entity": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_recipe_book_add": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_damage_event": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_container_set_slot": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_system_chat": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_keep_alive": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_section_blocks_update": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_container_set_content": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_animate": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_initialize_border": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_block_changed_ack": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_set_default_spawn_position": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_set_health": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_game_event": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_ticking_state": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_set_simulation_distance": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_ticking_step": {
+    "value": 0,
+    "percentage": "0%"
+   },
+   "minecraft_set_chunk_cache_radius": {
+    "value": 0,
+    "percentage": "0%"
+   }
+  },
+  "server_bound": {
+   "minecraft_move_player_pos_rot": {
+    "value": 90,
+    "percentage": "63.217%"
+   },
+   "minecraft_move_player_pos": {
+    "value": 43,
+    "percentage": "30.278%"
+   },
+   "minecraft_client_tick_end": {
+    "value": 5,
+    "percentage": "3.95%"
+   },
+   "minecraft_player_input": {
+    "value": 1,
+    "percentage": "0.948%"
+   },
+   "minecraft_set_creative_mode_slot": {
+    "value": 0,
+    "percentage": "0.402%"
+   },
+   "minecraft_player_action": {
+    "value": 0,
+    "percentage": "0.294%"
+   },
+   "minecraft_move_player_rot": {
+    "value": 0,
+    "percentage": "0.204%"
+   },
+   "minecraft_swing": {
+    "value": 0,
+    "percentage": "0.166%"
+   },
+   "minecraft_player_command": {
+    "value": 0,
+    "percentage": "0.152%"
+   },
+   "minecraft_player_abilities": {
+    "value": 0,
+    "percentage": "0.14%"
+   },
+   "minecraft_keep_alive": {
+    "value": 0,
+    "percentage": "0.116%"
+   },
+   "minecraft_interact": {
+    "value": 0,
+    "percentage": "0.105%"
+   },
+   "minecraft_set_carried_item": {
+    "value": 0,
+    "percentage": "0.024%"
+   },
+   "minecraft_container_close": {
+    "value": 0,
+    "percentage": "0.003%"
+   },
+   "minecraft_move_player_status_only": {
+    "value": 0,
+    "percentage": "0.001%"
+   },
+   "minecraft_player_loaded": {
+    "value": 0,
+    "percentage": "0.001%"
+   }
+  }
+ },
+ "per_player": {
+  "toxicity_210": {
+   "time": 290480,
+   "client_bound": {
+    "minecraft_level_chunk_with_light": {
+     "value": 107004,
+     "percentage": "98.513%"
+    },
+    "minecraft_entity_position_sync": {
+     "value": 365,
+     "percentage": "0.336%"
+    },
+    "minecraft_move_entity_pos_rot": {
+     "value": 343,
+     "percentage": "0.316%"
+    },
+    "minecraft_move_entity_pos": {
+     "value": 227,
+     "percentage": "0.21%"
+    },
+    "minecraft_set_entity_motion": {
+     "value": 177,
+     "percentage": "0.163%"
+    },
+    "minecraft_rotate_head": {
+     "value": 174,
+     "percentage": "0.16%"
+    },
+    "minecraft_add_entity": {
+     "value": 71,
+     "percentage": "0.066%"
+    },
+    "minecraft_light_update": {
+     "value": 48,
+     "percentage": "0.045%"
+    },
+    "minecraft_update_attributes": {
+     "value": 41,
+     "percentage": "0.038%"
+    },
+    "minecraft_update_advancements": {
+     "value": 33,
+     "percentage": "0.03%"
+    },
+    "minecraft_commands": {
+     "value": 30,
+     "percentage": "0.028%"
+    },
+    "minecraft_set_entity_data": {
+     "value": 28,
+     "percentage": "0.027%"
+    },
+    "minecraft_forget_level_chunk": {
+     "value": 23,
+     "percentage": "0.022%"
+    },
+    "minecraft_sound": {
+     "value": 11,
+     "percentage": "0.01%"
+    },
+    "minecraft_entity_event": {
+     "value": 6,
+     "percentage": "0.006%"
+    },
+    "minecraft_set_time": {
+     "value": 5,
+     "percentage": "0.005%"
+    },
+    "minecraft_remove_entities": {
+     "value": 4,
+     "percentage": "0.004%"
+    },
+    "minecraft_move_entity_rot": {
+     "value": 4,
+     "percentage": "0.004%"
+    },
+    "minecraft_level_particles": {
+     "value": 3,
+     "percentage": "0.003%"
+    },
+    "minecraft_bundle_delimiter": {
+     "value": 2,
+     "percentage": "0.003%"
+    },
+    "minecraft_player_info_update": {
+     "value": 2,
+     "percentage": "0.002%"
+    },
+    "minecraft_set_equipment": {
+     "value": 2,
+     "percentage": "0.002%"
+    },
+    "minecraft_add_experience_orb": {
+     "value": 2,
+     "percentage": "0.002%"
+    },
+    "minecraft_set_chunk_cache_center": {
+     "value": 0,
+     "percentage": "0.001%"
+    },
+    "minecraft_level_event": {
+     "value": 0,
+     "percentage": "0.001%"
+    },
+    "minecraft_set_experience": {
+     "value": 0,
+     "percentage": "0.001%"
+    },
+    "minecraft_block_update": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_take_item_entity": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_recipe_book_add": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_damage_event": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_container_set_slot": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_system_chat": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_keep_alive": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_section_blocks_update": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_container_set_content": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_animate": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_initialize_border": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_block_changed_ack": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_set_default_spawn_position": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_set_health": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_game_event": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_ticking_state": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_set_simulation_distance": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_ticking_step": {
+     "value": 0,
+     "percentage": "0%"
+    },
+    "minecraft_set_chunk_cache_radius": {
+     "value": 0,
+     "percentage": "0%"
+    }
+   },
+   "server_bound": {
+    "minecraft_move_player_pos_rot": {
+     "value": 90,
+     "percentage": "63.217%"
+    },
+    "minecraft_move_player_pos": {
+     "value": 43,
+     "percentage": "30.278%"
+    },
+    "minecraft_client_tick_end": {
+     "value": 5,
+     "percentage": "3.95%"
+    },
+    "minecraft_player_input": {
+     "value": 1,
+     "percentage": "0.948%"
+    },
+    "minecraft_set_creative_mode_slot": {
+     "value": 0,
+     "percentage": "0.402%"
+    },
+    "minecraft_player_action": {
+     "value": 0,
+     "percentage": "0.294%"
+    },
+    "minecraft_move_player_rot": {
+     "value": 0,
+     "percentage": "0.204%"
+    },
+    "minecraft_swing": {
+     "value": 0,
+     "percentage": "0.166%"
+    },
+    "minecraft_player_command": {
+     "value": 0,
+     "percentage": "0.152%"
+    },
+    "minecraft_player_abilities": {
+     "value": 0,
+     "percentage": "0.14%"
+    },
+    "minecraft_keep_alive": {
+     "value": 0,
+     "percentage": "0.116%"
+    },
+    "minecraft_interact": {
+     "value": 0,
+     "percentage": "0.105%"
+    },
+    "minecraft_set_carried_item": {
+     "value": 0,
+     "percentage": "0.024%"
+    },
+    "minecraft_container_close": {
+     "value": 0,
+     "percentage": "0.003%"
+    },
+    "minecraft_move_player_status_only": {
+     "value": 0,
+     "percentage": "0.001%"
+    },
+    "minecraft_player_loaded": {
+     "value": 0,
+     "percentage": "0.001%"
+    }
+   }
+  }
+ }
+}
