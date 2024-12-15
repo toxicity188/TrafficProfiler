@@ -17,6 +17,9 @@ data class MinecraftVersion(
         val version1_21_1 = MinecraftVersion(1, 21, 1)
         val version1_21 = MinecraftVersion(1, 21, 0)
         val version1_20_6 = MinecraftVersion(1, 20, 6)
+        val version1_20_5 = MinecraftVersion(1, 20, 5)
+        val version1_20_4 = MinecraftVersion(1, 20, 4)
+        val version1_20_3 = MinecraftVersion(1, 20, 3)
 
         private val comparator = Comparator.comparing { v: MinecraftVersion ->
             v.first

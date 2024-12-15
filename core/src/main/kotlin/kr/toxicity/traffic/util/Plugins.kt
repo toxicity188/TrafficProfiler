@@ -2,6 +2,7 @@ package kr.toxicity.traffic.util
 
 import kr.toxicity.traffic.api.TrafficProfiler
 import kr.toxicity.traffic.manager.ConfigManagerImpl
+import java.nio.file.Path
 
 val PLUGIN
     get() = TrafficProfiler.inst()
@@ -10,8 +11,8 @@ val DATA_FOLDER
     get() = PLUGIN.dataFolder.apply {
         if (!exists()) mkdirs()
     }
-val DATA_PATH
-    get() = PLUGIN.dataPath
+val DATA_PATH: Path
+    get() = DATA_FOLDER.toPath()
 
 fun info(vararg message: String) {
     val logger = PLUGIN.logger

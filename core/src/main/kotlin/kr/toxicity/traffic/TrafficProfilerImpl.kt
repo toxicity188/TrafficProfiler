@@ -33,6 +33,8 @@ class TrafficProfilerImpl : TrafficProfiler() {
             MinecraftVersion.version1_21_4 -> kr.toxicity.traffic.nms.v1_21_R3.NMSImpl()
             MinecraftVersion.version1_21_2, MinecraftVersion.version1_21_3 -> kr.toxicity.traffic.nms.v1_21_R2.NMSImpl()
             MinecraftVersion.version1_21, MinecraftVersion.version1_21_1 -> kr.toxicity.traffic.nms.v1_21_R1.NMSImpl()
+            MinecraftVersion.version1_20_5, MinecraftVersion.version1_20_6 -> kr.toxicity.traffic.nms.v1_20_R4.NMSImpl()
+            MinecraftVersion.version1_20_3, MinecraftVersion.version1_20_4 -> kr.toxicity.traffic.nms.v1_20_R3.NMSImpl()
             else -> {
                 warn(
                     "Unsupported version: $version",
