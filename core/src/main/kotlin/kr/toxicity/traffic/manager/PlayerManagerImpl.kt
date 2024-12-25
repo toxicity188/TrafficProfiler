@@ -30,9 +30,11 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
         registerEvent(object : Listener {
             @EventHandler
             fun PlayerJoinEvent.join() {
-                playerMap.computeIfAbsent(player.uniqueId) {
-                    PLUGIN.nms().profiler(player)
-                }
+                Bukkit.getRegionScheduler().runDelayed(PLUGIN, player.location, {
+                    playerMap.computeIfAbsent(player.uniqueId) {
+                        PLUGIN.nms().profiler(player)
+                    }
+                }, 1)
             }
             @EventHandler
             fun PlayerQuitEvent.quit() {
@@ -41,17 +43,21 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
         })
     }
 
-    override fun reload() {
-        playerMap.values.forEach(PacketProfiler::clear)
-        summaryTask?.cancel()
-        time.set(System.currentTimeMillis())
+    private fun resetTask() {
         summaryTask = Bukkit.getAsyncScheduler().runAtFixedRate(PLUGIN, {
             runCatching {
-                generateProfileResult()
+                generateProfileResult0()
             }.getOrElse {
                 it.handleException("Unable to generate profile result.")
             }
         }, ConfigManagerImpl.summaryTime(), ConfigManagerImpl.summaryTime(), TimeUnit.MILLISECONDS)
+    }
+
+    override fun reload() {
+        playerMap.values.forEach(PacketProfiler::clear)
+        summaryTask?.cancel()
+        time.set(System.currentTimeMillis())
+        resetTask()
     }
 
     override fun end() {
@@ -64,6 +70,10 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
     override fun player(uuid: UUID): PacketProfiler? = playerMap[uuid]
 
     override fun generateProfileResult(): File {
+        resetTask()
+        return generateProfileResult0()
+    }
+    private fun generateProfileResult0(): File {
         val newTime = System.currentTimeMillis()
         val divMs = newTime.toDouble() - time.get()
         val div = divMs / 1000
