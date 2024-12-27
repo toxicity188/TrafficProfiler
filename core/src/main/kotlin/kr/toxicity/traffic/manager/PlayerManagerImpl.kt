@@ -44,6 +44,8 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
     }
 
     private fun resetTask() {
+        time.set(System.currentTimeMillis())
+        summaryTask?.cancel()
         summaryTask = Bukkit.getAsyncScheduler().runAtFixedRate(PLUGIN, {
             runCatching {
                 generateProfileResult0()
@@ -55,8 +57,6 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
 
     override fun reload() {
         playerMap.values.forEach(PacketProfiler::clear)
-        summaryTask?.cancel()
-        time.set(System.currentTimeMillis())
         resetTask()
     }
 
