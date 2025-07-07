@@ -4,9 +4,7 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.executors.CommandExecutor
-import kr.toxicity.traffic.api.ReloadState.Failure
-import kr.toxicity.traffic.api.ReloadState.OnReload
-import kr.toxicity.traffic.api.ReloadState.Success
+import kr.toxicity.traffic.api.ReloadState.*
 import kr.toxicity.traffic.api.manager.CommandManager
 import kr.toxicity.traffic.util.PLUGIN
 import kr.toxicity.traffic.util.handleException

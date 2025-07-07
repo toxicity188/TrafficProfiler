@@ -2,6 +2,7 @@ package kr.toxicity.traffic.nms.v1_21_R2
 
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
+import io.netty.channel.ChannelPipeline
 import io.netty.handler.codec.ByteToMessageDecoder
 import io.netty.handler.codec.MessageToByteEncoder
 import kr.toxicity.traffic.api.nms.*
@@ -18,6 +19,9 @@ class NMSImpl : NMS {
         private const val VANILLA_DECODER = "decoder"
     }
 
+    override fun submitToEventLoop(player: Player, runnable: Runnable) {
+        (player as CraftPlayer).handle.connection.connection.channel.eventLoop().submit(runnable)
+    }
     override fun profiler(player: Player): PacketProfiler = PacketProfilerImpl(player)
 
     private class PacketProfilerImpl(
@@ -26,28 +30,15 @@ class NMSImpl : NMS {
 
         private val pipeline = (player as CraftPlayer).handle.connection.connection.channel.pipeline()
         private val record = AtomicBoolean(true)
-        private val encoder: PacketEncoderDelegate = PacketEncoderDelegate(pipeline[VANILLA_ENCODER] as MessageToByteEncoder<*>) {
+        private val encoder: PacketEncoderDelegate = PacketEncoderDelegate(pipeline) {
             record.get()
         }
-        private val decoder: PacketDecoderDelegate = PacketDecoderDelegate(pipeline[VANILLA_DECODER] as ByteToMessageDecoder) {
+        private val decoder: PacketDecoderDelegate = PacketDecoderDelegate(pipeline) {
             record.get()
         }
 
         @Volatile
         private var timeMills = System.currentTimeMillis()
-
-        init {
-            pipeline.replace(
-                VANILLA_ENCODER,
-                VANILLA_ENCODER,
-                encoder
-            )
-            pipeline.replace(
-                VANILLA_DECODER,
-                VANILLA_DECODER,
-                decoder
-            )
-        }
 
         override fun player(): Player = player
 
@@ -86,16 +77,21 @@ class NMSImpl : NMS {
     }
 
     private class PacketEncoderDelegate(
-        val delegate : MessageToByteEncoder<*>,
+        pipeline: ChannelPipeline,
         val record: () -> Boolean
     ) : MessageToByteEncoder<Packet<*>>(), PacketDelegate {
         companion object {
             private val encodeMethod = MessageToByteEncoder::class.java
-                .getDeclaredMethod("encode", ChannelHandlerContext::class.java, java.lang.Object::class.java, ByteBuf::class.java)
+                .getDeclaredMethod("encode", ChannelHandlerContext::class.java, Object::class.java, ByteBuf::class.java)
                 .apply {
                     isAccessible = true
                 }
         }
+        private val delegate: MessageToByteEncoder<*> = pipeline.replace(
+            VANILLA_ENCODER,
+            VANILLA_ENCODER,
+            this
+        ) as MessageToByteEncoder<*>
         private val map = TrafficResultImpl()
         override fun encode(p0: ChannelHandlerContext, p1: Packet<*>, p2: ByteBuf) {
             encodeMethod(delegate, p0, p1, p2)
@@ -113,16 +109,21 @@ class NMSImpl : NMS {
     }
 
     private class PacketDecoderDelegate(
-        val delegate: ByteToMessageDecoder,
+        pipeline: ChannelPipeline,
         val record: () -> Boolean
     ) : ByteToMessageDecoder(), PacketDelegate {
         companion object {
             private val decodeMethod = ByteToMessageDecoder::class.java
-                .getDeclaredMethod("decode", ChannelHandlerContext::class.java, ByteBuf::class.java, java.util.List::class.java)
+                .getDeclaredMethod("decode", ChannelHandlerContext::class.java, ByteBuf::class.java, List::class.java)
                 .apply {
                     isAccessible = true
                 }
         }
+        private val delegate: ByteToMessageDecoder = pipeline.replace(
+            VANILLA_DECODER,
+            VANILLA_DECODER,
+            this
+        ) as ByteToMessageDecoder
         private val map = TrafficResultImpl()
         override fun decode(p0: ChannelHandlerContext, p1: ByteBuf, p2: MutableList<Any>) {
             val byte = p1.readableBytes()

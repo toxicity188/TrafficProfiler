@@ -1,21 +1,21 @@
 import xyz.jpenilla.resourcefactory.bukkit.Permission
 
 plugins {
-    kotlin("jvm") version "2.1.0"
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.8" apply false
+    kotlin("jvm") version "2.2.0"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.18" apply false
     id("xyz.jpenilla.run-paper") version "2.3.1"
-    id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.2.0"
+    id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.3.0"
     id("io.github.goooler.shadow") version "8.1.8"
 }
 
-val minecraft = "1.21.4"
+val minecraft = "1.21.7"
 
 allprojects {
     apply(plugin = "java")
     apply(plugin = "kotlin")
 
     group = "kr.toxicity.traffic"
-    version = "1.1"
+    version = "1.2"
 
     repositories {
         mavenCentral()
@@ -24,7 +24,7 @@ allprojects {
 
     dependencies {
         testImplementation(kotlin("test"))
-        implementation("dev.jorel:commandapi-bukkit-shade:9.7.0")
+        implementation("dev.jorel:commandapi-bukkit-shade:10.1.1")
     }
 
     tasks {

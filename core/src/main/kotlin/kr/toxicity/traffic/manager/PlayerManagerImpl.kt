@@ -11,7 +11,6 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import java.io.File
-import java.text.DecimalFormat
 import java.time.LocalDateTime
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -30,11 +29,11 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
         registerEvent(object : Listener {
             @EventHandler
             fun PlayerJoinEvent.join() {
-                Bukkit.getRegionScheduler().runDelayed(PLUGIN, player.location, {
+                PLUGIN.nms().submitToEventLoop(player) {
                     playerMap.computeIfAbsent(player.uniqueId) {
                         PLUGIN.nms().profiler(player)
                     }
-                }, 1)
+                }
             }
             @EventHandler
             fun PlayerQuitEvent.quit() {
@@ -44,7 +43,6 @@ object PlayerManagerImpl : PlayerManager, TrafficManagerImpl {
     }
 
     private fun resetTask() {
-        time.set(System.currentTimeMillis())
         summaryTask?.cancel()
         summaryTask = Bukkit.getAsyncScheduler().runAtFixedRate(PLUGIN, {
             runCatching {
