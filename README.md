@@ -24,7 +24,7 @@ dependenceis {
 ```
 
 ### Supported version
-- Bukkit 1.21-1.21.4
+- Bukkit 1.21-1.21.7
 
 ### Format
 ```json
