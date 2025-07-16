@@ -30,7 +30,7 @@ class TrafficProfilerImpl : TrafficProfiler() {
 
     override fun onEnable() {
         nms = when (val version = MinecraftVersion.current) {
-            MinecraftVersion.version1_21_6, MinecraftVersion.version1_21_7 -> kr.toxicity.traffic.nms.v1_21_R5.NMSImpl()
+            MinecraftVersion.version1_21_6, MinecraftVersion.version1_21_7, MinecraftVersion.version1_21_8 -> kr.toxicity.traffic.nms.v1_21_R5.NMSImpl()
             MinecraftVersion.version1_21_5 -> kr.toxicity.traffic.nms.v1_21_R4.NMSImpl()
             MinecraftVersion.version1_21_4 -> kr.toxicity.traffic.nms.v1_21_R3.NMSImpl()
             MinecraftVersion.version1_21_2, MinecraftVersion.version1_21_3 -> kr.toxicity.traffic.nms.v1_21_R2.NMSImpl()
