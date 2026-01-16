@@ -1,8 +1,8 @@
 package kr.toxicity.traffic.manager
 
 import dev.jorel.commandapi.CommandAPI
-import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.CommandAPIPaperConfig
 import dev.jorel.commandapi.executors.CommandExecutor
 import kr.toxicity.traffic.api.ReloadState.*
 import kr.toxicity.traffic.api.manager.CommandManager
@@ -16,7 +16,7 @@ object CommandManagerImpl : CommandManager, TrafficManagerImpl {
     override val name = "command"
 
     override fun start() {
-        CommandAPI.onLoad(CommandAPIBukkitConfig(PLUGIN).silentLogs(true))
+        CommandAPI.onLoad(CommandAPIPaperConfig(PLUGIN).silentLogs(true))
         CommandAPICommand("traffic")
             .withSubcommands(
                 CommandAPICommand("generate")

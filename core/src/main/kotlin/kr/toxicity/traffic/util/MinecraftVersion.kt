@@ -11,6 +11,9 @@ data class MinecraftVersion(
         val current = MinecraftVersion(Bukkit.getBukkitVersion()
             .substringBefore('-'))
 
+        val version1_21_11 = MinecraftVersion(1, 21, 11)
+        val version1_21_10 = MinecraftVersion(1, 21, 10)
+        val version1_21_9 = MinecraftVersion(1, 21, 9)
         val version1_21_8 = MinecraftVersion(1, 21, 8)
         val version1_21_7 = MinecraftVersion(1, 21, 7)
         val version1_21_6 = MinecraftVersion(1, 21, 6)
@@ -22,8 +25,6 @@ data class MinecraftVersion(
         val version1_21 = MinecraftVersion(1, 21, 0)
         val version1_20_6 = MinecraftVersion(1, 20, 6)
         val version1_20_5 = MinecraftVersion(1, 20, 5)
-        val version1_20_4 = MinecraftVersion(1, 20, 4)
-        val version1_20_3 = MinecraftVersion(1, 20, 3)
 
         private val comparator = Comparator.comparing { v: MinecraftVersion ->
             v.first

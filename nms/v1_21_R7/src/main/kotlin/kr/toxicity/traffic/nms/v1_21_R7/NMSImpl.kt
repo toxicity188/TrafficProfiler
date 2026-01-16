@@ -1,4 +1,4 @@
-package kr.toxicity.traffic.nms.v1_20_R3
+package kr.toxicity.traffic.nms.v1_21_R7
 
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
@@ -7,7 +7,7 @@ import io.netty.handler.codec.ByteToMessageDecoder
 import io.netty.handler.codec.MessageToByteEncoder
 import kr.toxicity.traffic.api.nms.*
 import net.minecraft.network.protocol.Packet
-import org.bukkit.craftbukkit.v1_20_R3.entity.CraftPlayer
+import org.bukkit.craftbukkit.entity.CraftPlayer
 import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -94,8 +94,9 @@ class NMSImpl : NMS {
         ) as MessageToByteEncoder<*>
         private val map = TrafficResultImpl()
         override fun encode(p0: ChannelHandlerContext, p1: Packet<*>, p2: ByteBuf) {
+            val before = p2.readableBytes()
             encodeMethod(delegate, p0, p1, p2)
-            if (record()) map.add(p1::class.java.simpleName, p2.readableBytes().toLong())
+            if (record()) map.add(p1.type().id.toDebugFileName(), (p2.readableBytes() - before).toLong())
         }
 
         override fun invoke(p1: ProtocolResult) {
@@ -130,7 +131,7 @@ class NMSImpl : NMS {
             decodeMethod(delegate, p0, p1, p2)
             if (record() && p2.isNotEmpty()) {
                 val last = p2.last() as Packet<*>
-                map.add(last::class.java.simpleName, byte.toLong())
+                map.add(last.type().id.toDebugFileName(), (byte - p1.readableBytes()).toLong())
             }
         }
         override fun invoke(p1: ProtocolResult) {

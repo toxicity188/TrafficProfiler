@@ -30,13 +30,14 @@ class TrafficProfilerImpl : TrafficProfiler() {
 
     override fun onEnable() {
         nms = when (val version = MinecraftVersion.current) {
+            MinecraftVersion.version1_21_11 -> kr.toxicity.traffic.nms.v1_21_R7.NMSImpl()
+            MinecraftVersion.version1_21_9, MinecraftVersion.version1_21_10 -> kr.toxicity.traffic.nms.v1_21_R6.NMSImpl()
             MinecraftVersion.version1_21_6, MinecraftVersion.version1_21_7, MinecraftVersion.version1_21_8 -> kr.toxicity.traffic.nms.v1_21_R5.NMSImpl()
             MinecraftVersion.version1_21_5 -> kr.toxicity.traffic.nms.v1_21_R4.NMSImpl()
             MinecraftVersion.version1_21_4 -> kr.toxicity.traffic.nms.v1_21_R3.NMSImpl()
             MinecraftVersion.version1_21_2, MinecraftVersion.version1_21_3 -> kr.toxicity.traffic.nms.v1_21_R2.NMSImpl()
             MinecraftVersion.version1_21, MinecraftVersion.version1_21_1 -> kr.toxicity.traffic.nms.v1_21_R1.NMSImpl()
             MinecraftVersion.version1_20_5, MinecraftVersion.version1_20_6 -> kr.toxicity.traffic.nms.v1_20_R4.NMSImpl()
-            MinecraftVersion.version1_20_3, MinecraftVersion.version1_20_4 -> kr.toxicity.traffic.nms.v1_20_R3.NMSImpl()
             else -> {
                 warn(
                     "Unsupported version: $version",

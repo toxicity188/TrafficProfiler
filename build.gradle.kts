@@ -1,21 +1,21 @@
 import xyz.jpenilla.resourcefactory.bukkit.Permission
 
 plugins {
-    kotlin("jvm") version "2.2.0"
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.18" apply false
-    id("xyz.jpenilla.run-paper") version "2.3.1"
-    id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.3.0"
-    id("io.github.goooler.shadow") version "8.1.8"
+    kotlin("jvm") version "2.3.0"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.19" apply false
+    id("xyz.jpenilla.run-paper") version "3.0.2"
+    id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.3.1"
+    id("com.gradleup.shadow") version "9.3.1"
 }
 
-val minecraft = "1.21.7"
+val minecraft = "1.21.11"
 
 allprojects {
     apply(plugin = "java")
     apply(plugin = "kotlin")
 
     group = "kr.toxicity.traffic"
-    version = "1.2"
+    version = "1.3.0"
 
     repositories {
         mavenCentral()
@@ -24,7 +24,7 @@ allprojects {
 
     dependencies {
         testImplementation(kotlin("test"))
-        implementation("dev.jorel:commandapi-bukkit-shade:10.1.1")
+        implementation("dev.jorel:commandapi-paper-shade:11.1.0")
     }
 
     tasks {
@@ -72,7 +72,7 @@ dependencies {
     implementation(api)
     implementation(core)
     nms.forEach {
-        implementation(project("nms:${it.name}", configuration = "reobf"))
+        implementation(it)
     }
 }
 
@@ -84,7 +84,7 @@ tasks {
         archiveClassifier = ""
         exclude("LICENSE")
         manifest {
-            attributes["paperweight-mappings-namespace"] = "spigot"
+            attributes["paperweight-mappings-namespace"] = "mojang"
         }
         fun prefix(pattern: String) {
             relocate(pattern, "${project.group}.shaded.$pattern")
